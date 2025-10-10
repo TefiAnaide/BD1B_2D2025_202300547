@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  oracle:
+    image: gvenzl/oracle-xe:18-slim
+    container_name: Proyecto2_db1
+    ports:
+      - "1522:1521"
+      - "5501:5500"
+    environment:
+      - ORACLE_PASSWORD=oracle
+    volumes:
+      - oracle_data:/opt/oracle/oradata
+      - ./script-ini:/docker-entrypoint-initdb.d
+
+volumes:
+  oracle_data:

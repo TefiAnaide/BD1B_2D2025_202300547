@@ -1,0 +1,21 @@
+para la consola:
+conectar:
+docker start Proyecto2_db1
+docker exec -it Proyecto2_db1 sqlplus system/oracle@//localhost:1521/XE
+
+
+
+iniciar
+/usr/local/bin/docker-compose up -d
+
+detener
+/usr/local/bin/docker-compose down
+
+ver si está
+docker ps
+
+eliminar:
+docker volume rm bd_oracle_data
+
+verificar:
+docker logs -f Proyecto2_db1
