@@ -1,126 +1,426 @@
 # Proyecto Fase 2: backend y exposición de servicios para la base de datos "Centro de Evaluación de Manejo"
 
-## Capturas de Evidencias
+## USO DE ENDPOINTS
+
+#### Tabla Centros
+- Agregar (POST)
+    - LINK: http://localhost:3000/centros 
+    - raw/JSON: 
+     ```json
+    {
+        "Id_Centro": 1, "Nombre": "Centro de Evaluación Norte"
+    }
+    ```
+
+- Visualizar (GET)
+    - LINK: http://localhost:3000/centros
+    - raw/JSON: 
+
+- Actualizar (PUT)
+    - LINK: http://localhost:3000/centros/2
+    - raw/JSON: 
+     ```json
+    {
+        "Nombre": "Centro de Evaluación Editado"
+    }
+    ```
+
+- Eliminar (DELETE)
+    - LINK: 
+    - raw/JSON: 
+
+#### Tabla Pregunta_Teorico
+- Agregar (POST)
+    - LINK: http://localhost:3000/preguntas-teorico
+    - raw/JSON: 
+     ```json
+    {
+        "id_pregunta": 1,
+        "pregunta_texto": "¿Qué significa una señal circular roja?",
+        "Respuesta": 2,
+        "Res1": "Advertencia",
+        "Res2": "Prohibición",
+        "Res3": "Información",
+        "Res4": "Recomendación"
+    }
+    ```
+
+- Visualizar (GET)
+    - LINK: http://localhost:3000/preguntas-teorico
+    - raw/JSON: 
+
+- Actualizar (PUT)
+    - LINK: http://localhost:3000/preguntas-teorico/1
+    - raw/JSON: 
+     ```json
+    {
+    "pregunta_texto": "¿Qué significa la señal circular roja?",
+    "Respuesta": 2,
+    "Res1": "Advertencia",
+    "Res2": "Prohibición",
+    "Res3": "Detenerse",
+    "Res4": "Girar"
+  }
+  ```
+
+- Eliminar (DELETE)
+    - LINK: 
+    - raw/JSON: 
+
+#### Tabla Pregunta_Practico
+- Agregar (POST)
+    - LINK: http://localhost:3000/preguntas-practico
+    - raw/JSON: 
+     ```json
+    {"Id_pregunta_practico": 1, "Pregunta_texto": "Estacionamiento en paralelo", "Punteo": 25}
+  ```
+
+- Visualizar (GET)
+    - LINK: http://localhost:3000/preguntas-practico
+    - raw/JSON: 
+
+- Actualizar (PUT)
+    - LINK: http://localhost:3000/preguntas-practico/1
+    - raw/JSON: 
+     ```json
+    {"Pregunta_texto": "Estacionamiento en paralelo edit", "Punteo": 25}
+  ```
+
+- Eliminar (DELETE)
+    - LINK: 
+    - raw/JSON: 
+
+#### Tabla Escuela
+- Agregar (POST)
+    - LINK: http://localhost:3000/escuelas
+    - raw/JSON: 
+     ```json
+    {
+        "Id_escuela": 1, 
+        "Nombre": "Escuela de Manejo Veloz", 
+        "Direccion": "Zona 1, Ciudad", 
+        "Acuerdo": "ACU-2023-001"
+    }
+  ```
+
+- Visualizar (GET)
+    - LINK: http://localhost:3000/escuelas
+    - raw/JSON: 
+
+- Actualizar (PUT)
+    - LINK: http://localhost:3000/escuelas/1
+    - raw/JSON: 
+     ```json
+    {
+        "Nombre": "Escuela editada", 
+        "Direccion": "Zona 6, Ciudad", 
+        "Acuerdo": "ACU-2025-001"
+    }
+  ```
+
+- Eliminar (DELETE)
+    - LINK: 
+    - raw/JSON: 
+
+#### Tabla Departamento
+- Agregar (POST)
+    - LINK: http://localhost:3000/departamentos
+    - raw/JSON: 
+     ```json
+    {"Id_departamento": 1, "Nombre": "Guatemala", "Codigo": 1}
+  ```
+
+- Visualizar (GET)
+    - LINK: http://localhost:3000/departamentos
+    - raw/JSON: 
+
+- Actualizar (PUT)
+    - LINK: http://localhost:3000/departamentos/1
+    - raw/JSON: 
+     ```json
+    {"Nombre": "Jutiapa", "Codigo": 1}
+  ```
+
+- Eliminar (DELETE)
+    - LINK: 
+    - raw/JSON: 
+
+#### Tabla Municipio
+- Agregar (POST)
+    - LINK: 
+    - raw/JSON: 
+
+- Visualizar (GET)
+    - LINK: 
+    - raw/JSON: 
+
+- Actualizar (PUT)
+    - LINK: 
+    - raw/JSON: 
+
+- Eliminar (DELETE)
+    - LINK: 
+    - raw/JSON: 
+
+#### Tabla Ubicacion
+- Agregar (POST)
+    - LINK: 
+    - raw/JSON: 
+
+- Visualizar (GET)
+    - LINK: 
+    - raw/JSON: 
+
+- Actualizar (PUT)
+    - LINK: 
+    - raw/JSON: 
+
+- Eliminar (DELETE)
+    - LINK: 
+    - raw/JSON: 
+
+#### Tabla Correlativo
+- Agregar (POST)
+    - LINK: 
+    - raw/JSON: 
+
+- Visualizar (GET)
+    - LINK: 
+    - raw/JSON: 
+
+- Actualizar (PUT)
+    - LINK: 
+    - raw/JSON: 
+
+- Eliminar (DELETE)
+    - LINK: 
+    - raw/JSON: 
+
+
+#### Tabla Registro
+- Agregar (POST)
+    - LINK: 
+    - raw/JSON: 
+
+- Visualizar (GET)
+    - LINK: 
+    - raw/JSON: 
+
+- Actualizar (PUT)
+    - LINK: 
+    - raw/JSON: 
+
+- Eliminar (DELETE)
+    - LINK: 
+    - raw/JSON: 
+
+
+#### Tabla Examen
+- Agregar (POST)
+    - LINK: 
+    - raw/JSON: 
+
+- Visualizar (GET)
+    - LINK: 
+    - raw/JSON: 
+
+- Actualizar (PUT)
+    - LINK: 
+    - raw/JSON: 
+
+- Eliminar (DELETE)
+    - LINK: 
+    - raw/JSON: 
+
+#### Tabla Respuesta_Usuario
+- Agregar (POST)
+    - LINK: 
+    - raw/JSON: 
+
+- Visualizar (GET)
+    - LINK: 
+    - raw/JSON: 
+
+- Actualizar (PUT)
+    - LINK: 
+    - raw/JSON: 
+
+- Eliminar (DELETE)
+    - LINK: 
+    - raw/JSON: 
+
+#### Tabla Respuesta_Practico_Usuario- Visualizar
+- Agregar (POST)
+    - LINK: 
+    - raw/JSON: 
+
+- Visualizar (GET)
+    - LINK: 
+    - raw/JSON: 
+
+- Actualizar (PUT)
+    - LINK: 
+    - raw/JSON: 
+
+- Eliminar (DELETE)
+    - LINK: 
+    - raw/JSON: 
+
+## CAPTURA DE EVIDENCIAS
 ### CRUD
 
 #### Tabla Centros
-- Visualizar
-![](/img/c1.png)
 - Agregar
+![](/img/C1.png)
+
+- Visualizar
 ![](/img/c2.png)
+
 - Actualizar
 ![](/img/c3.png)
+
 - Eliminar
 ![](/img/c4.png)
 
 #### Tabla Pregunta_Teorico
-- Visualizar: 
-![](/img/c7.png)
-
-- Agregar: http://localhost:3000/Pregunta_Teorico?id_pregunta=26&pregunta_texto=cuales son los colores de semaforo&Respuesta=1&Res1=verde amarillo rojo&Res2=morado&Res3=azul&Res4=negro
-![](/img/c6.png)
-
-- Actualizar: http://localhost:3000/Pregunta_Teorico/26?pregunta_texto=cuales son los colores de semaforo&Respuesta=1&Res1=verde amarillo rojo&Res2=morado gris&Res3=azul cafe&Res4=negro azul
-![](/img/c8.png)
-
-- Eliminar
+- Agregar
 ![](/img/c5.png)
 
+- Visualizar
+![](/img/c6.png)
+
+- Actualizar
+![](/img/c7.png)
+
+- Eliminar
+![](/img/c8.png)
+
 #### Tabla Pregunta_Practico
+- Agregar
+![](/img/c9.png)
+
 - Visualizar
 ![](/img/c10.png)
-- Agregar: http://localhost:3000/Pregunta_Practico?Id_pregunta_practico=11&Pregunta_texto=Retroseso&Punteo=10
-![](/img/c9.png)
-- Actualizar: http://localhost:3000/Pregunta_Practico/11?Pregunta_texto=Estacionar en Retroseso&Punteo=10
+
+- Actualizar
 ![](/img/c11.png)
+
 - Eliminar
 ![](/img/c12.png)
 
 #### Tabla Escuela
-- Visualizar
-![](/img/c1.png)
 - Agregar
-![](/img/c2.png)
+![](/img/c13.png)
+
+- Visualizar
+![](/img/c14.png)
+
 - Actualizar
-![](/img/c3.png)
+![](/img/c15.png)
+
 - Eliminar
-![](/img/c4.png)
+![](/img/c16.png)
 
 #### Tabla Departamento
-- Visualizar
-![](/img/c1.png)
 - Agregar
-![](/img/c2.png)
+![](/img/c17.png)
+
+- Visualizar
+![](/img/c18.png)
+
 - Actualizar
-![](/img/c3.png)
+![](/img/c19.png)
+
 - Eliminar
-![](/img/c4.png)
+![](/img/c20.png)
 
 #### Tabla Municipio
-- Visualizar
-![](/img/c1.png)
 - Agregar
-![](/img/c2.png)
+![](/img/c21.png)
+
+- Visualizar
+![](/img/c22.png)
+
 - Actualizar
-![](/img/c3.png)
+![](/img/c23.png)
+
 - Eliminar
-![](/img/c4.png)
+![](/img/c24.png)
 
 #### Tabla Ubicacion
-- Visualizar
-![](/img/c1.png)
 - Agregar
-![](/img/c2.png)
+![](/img/c25.png)
+
+- Visualizar
+![](/img/c26.png)
+
 - Actualizar
-![](/img/c3.png)
+![](/img/c27.png)
+
 - Eliminar
-![](/img/c4.png)
+![](/img/c28.png)
 
 #### Tabla Correlativo
-- Visualizar
-![](/img/c1.png)
 - Agregar
-![](/img/c2.png)
+![](/img/c29.png)
+
+- Visualizar
+![](/img/c30.png)
+
 - Actualizar
-![](/img/c3.png)
+![](/img/c31.png)
+
 - Eliminar
-![](/img/c4.png)
+![](/img/c32.png)
 
 #### Tabla Registro
-- Visualizar
-![](/img/c1.png)
 - Agregar
-![](/img/c2.png)
+![](/img/c33.png)
+
+- Visualizar
+![](/img/c34.png)
+
 - Actualizar
-![](/img/c3.png)
+![](/img/c35.png)
+
 - Eliminar
-![](/img/c4.png)
+![](/img/c36.png)
 
 #### Tabla Examen
-- Visualizar
-![](/img/c1.png)
 - Agregar
-![](/img/c2.png)
+![](/img/c37.png)
+
+- Visualizar
+![](/img/c38.png)
+
 - Actualizar
-![](/img/c3.png)
+![](/img/c39.png)
+
 - Eliminar
-![](/img/c4.png)
+![](/img/c40.png)
 
 #### Tabla Respuesta_Usuario
-- Visualizar
-![](/img/c1.png)
 - Agregar
-![](/img/c2.png)
-- Actualizar
-![](/img/c3.png)
-- Eliminar
-![](/img/c4.png)
+![](/img/c41.png)
 
-#### Tabla Respuesta_Practico_Usuario- Visualizar
-![](/img/c1.png)
-- Agregar
-![](/img/c2.png)
+- Visualizar
+![](/img/c42.png)
+
 - Actualizar
-![](/img/c3.png)
+![](/img/c43.png)
+
 - Eliminar
-![](/img/c4.png)
+![](/img/c44.png)
+
+#### Tabla Respuesta_Practico_Usuario
+- Agregar
+![](/img/c45.png)
+
+- Visualizar
+![](/img/c46.png)
+
+- Actualizar
+![](/img/c47.png)
+
+- Eliminar
+![](/img/c48.png)

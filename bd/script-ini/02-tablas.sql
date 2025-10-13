@@ -51,7 +51,7 @@ CREATE TABLE Municipio
   Codigo INT NOT NULL,
   Id_departamento INT NOT NULL,
   PRIMARY KEY (Id_municipio),
-  FOREIGN KEY (Id_departamento) REFERENCES Departamento(Id_departamento)
+  FOREIGN KEY (Id_departamento) REFERENCES Departamento(Id_departamento) ON DELETE CASCADE
 );
 
 CREATE TABLE Ubicacion
@@ -59,8 +59,8 @@ CREATE TABLE Ubicacion
   Id_Centro INT NOT NULL,
   Id_escuela INT NOT NULL,
   PRIMARY KEY (Id_Centro, Id_escuela),
-  FOREIGN KEY (Id_Centro) REFERENCES Centro(Id_Centro),
-  FOREIGN KEY (Id_escuela) REFERENCES Escuela(Id_escuela)
+  FOREIGN KEY (Id_Centro) REFERENCES Centro(Id_Centro) ON DELETE CASCADE,
+  FOREIGN KEY (Id_escuela) REFERENCES Escuela(Id_escuela) ON DELETE CASCADE
 );
 
 CREATE TABLE Correlativo
@@ -83,8 +83,8 @@ CREATE TABLE Registro
   Id_escuela INT NOT NULL,
   Id_municipio INT NOT NULL,
   PRIMARY KEY (Id_registro),
-  FOREIGN KEY (Id_Centro, Id_escuela) REFERENCES Ubicacion(Id_Centro, Id_escuela),
-  FOREIGN KEY (Id_municipio) REFERENCES Municipio(Id_municipio)
+  FOREIGN KEY (Id_Centro, Id_escuela) REFERENCES Ubicacion(Id_Centro, Id_escuela) ON DELETE CASCADE,
+  FOREIGN KEY (Id_municipio) REFERENCES Municipio(Id_municipio) ON DELETE CASCADE
 );
 
 CREATE TABLE Examen
@@ -93,8 +93,8 @@ CREATE TABLE Examen
   Id_correlativo INT NOT NULL,
   Id_registro INT NOT NULL,
   PRIMARY KEY (Id_examen),
-  FOREIGN KEY (Id_correlativo) REFERENCES Correlativo(Id_correlativo),
-  FOREIGN KEY (Id_registro) REFERENCES Registro(Id_registro)
+  FOREIGN KEY (Id_correlativo) REFERENCES Correlativo(Id_correlativo) ON DELETE CASCADE,
+  FOREIGN KEY (Id_registro) REFERENCES Registro(Id_registro) ON DELETE CASCADE
 );
 
 CREATE TABLE Respuesta_Usuario
@@ -104,8 +104,8 @@ CREATE TABLE Respuesta_Usuario
   id_pregunta INT NOT NULL,
   Id_examen INT NOT NULL,
   PRIMARY KEY (Id_respuesta_usuario),
-  FOREIGN KEY (id_pregunta) REFERENCES Pregunta_Teorico(id_pregunta),
-  FOREIGN KEY (Id_examen) REFERENCES Examen(Id_examen)
+  FOREIGN KEY (id_pregunta) REFERENCES Pregunta_Teorico(id_pregunta) ON DELETE CASCADE,
+  FOREIGN KEY (Id_examen) REFERENCES Examen(Id_examen) ON DELETE CASCADE
 );
 
 CREATE TABLE Respuesta_Practico_Usuario
@@ -115,8 +115,8 @@ CREATE TABLE Respuesta_Practico_Usuario
   Id_pregunta_practico INT NOT NULL,
   Id_examen INT NOT NULL,
   PRIMARY KEY (Id_respuesta_practico),
-  FOREIGN KEY (Id_pregunta_practico) REFERENCES Pregunta_Practico(Id_pregunta_practico),
-  FOREIGN KEY (Id_examen) REFERENCES Examen(Id_examen)
+  FOREIGN KEY (Id_pregunta_practico) REFERENCES Pregunta_Practico(Id_pregunta_practico)  ON DELETE CASCADE,
+  FOREIGN KEY (Id_examen) REFERENCES Examen(Id_examen) ON DELETE CASCADE
 );
 
 ALTER TABLE Pregunta_Teorico MODIFY pregunta_texto VARCHAR2(150);
