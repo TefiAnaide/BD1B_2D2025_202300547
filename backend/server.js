@@ -367,7 +367,7 @@ app.post('/correlativos', async (req, res) => {
     try {
         const { Id_correlativo, Fecha, No_examen } = req.body;
         const sql = `INSERT INTO Correlativo (Id_correlativo, Fecha, No_examen)
-                     VALUES (:1, :2, :3)`;
+                     VALUES (:1, TO_DATE(:2, 'YYYY-MM-DD'), :3)`; 
         await db.open(sql, [Id_correlativo, Fecha, No_examen], true);
         res.status(201).json({ message: 'Correlativo creado' });
     } catch (err) {
@@ -391,7 +391,7 @@ app.put('/correlativos/:id', async (req, res) => {
     try {
         const { id } = req.params;
         const { Fecha, No_examen } = req.body;
-        const sql = `UPDATE Correlativo SET Fecha = :1, No_examen = :2 WHERE Id_correlativo = :3`;
+        const sql = `UPDATE Correlativo SET Fecha = TO_DATE(:1, 'YYYY-MM-DD'), No_examen = :2 WHERE Id_correlativo = :3`;
         await db.open(sql, [Fecha, No_examen, id], true);
         res.json({ message: 'Correlativo actualizado' });
     } catch (err) {
@@ -417,7 +417,7 @@ app.post('/registros', async (req, res) => {
     try {
         const { Id_registro, Fecha, Tipo_tramite, Tipo_licencia, Nombre_completo, Genero, Id_Centro, Id_escuela, Id_municipio } = req.body;
         const sql = `INSERT INTO Registro (Id_registro, Fecha, Tipo_tramite, Tipo_licencia, Nombre_completo, Genero, Id_Centro, Id_escuela, Id_municipio)
-                     VALUES (:1, :2, :3, :4, :5, :6, :7, :8, :9)`;
+                     VALUES (:1, TO_DATE(:2, 'YYYY-MM-DD'), :3, :4, :5, :6, :7, :8, :9)`;
         await db.open(sql, [Id_registro, Fecha, Tipo_tramite, Tipo_licencia, Nombre_completo, Genero, Id_Centro, Id_escuela, Id_municipio], true);
         res.status(201).json({ message: 'Registro creado' });
     } catch (err) {
@@ -441,7 +441,7 @@ app.put('/registros/:id', async (req, res) => {
     try {
         const { id } = req.params;
         const { Fecha, Tipo_tramite, Tipo_licencia, Nombre_completo, Genero, Id_Centro, Id_escuela, Id_municipio } = req.body;
-        const sql = `UPDATE Registro SET Fecha = :1, Tipo_tramite = :2, Tipo_licencia = :3, Nombre_completo = :4, Genero = :5, Id_Centro = :6, Id_escuela = :7, Id_municipio = :8
+        const sql = `UPDATE Registro SET Fecha = TO_DATE(:1, 'YYYY-MM-DD'), Tipo_tramite = :2, Tipo_licencia = :3, Nombre_completo = :4, Genero = :5, Id_Centro = :6, Id_escuela = :7, Id_municipio = :8
                      WHERE Id_registro = :9`;
         await db.open(sql, [Fecha, Tipo_tramite, Tipo_licencia, Nombre_completo, Genero, Id_Centro, Id_escuela, Id_municipio, id], true);
         res.json({ message: 'Registro actualizado' });

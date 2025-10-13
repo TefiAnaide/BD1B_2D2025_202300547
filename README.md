@@ -26,7 +26,7 @@
     ```
 
 - Eliminar (DELETE)
-    - LINK: 
+    - LINK: http://localhost:3000/centros/4
     - raw/JSON: 
 
 #### Tabla Pregunta_Teorico
@@ -64,7 +64,7 @@
   ```
 
 - Eliminar (DELETE)
-    - LINK: 
+    - LINK: http://localhost:3000/preguntas-teorico/4
     - raw/JSON: 
 
 #### Tabla Pregunta_Practico
@@ -87,7 +87,7 @@
   ```
 
 - Eliminar (DELETE)
-    - LINK: 
+    - LINK: http://localhost:3000/preguntas-practico/5
     - raw/JSON: 
 
 #### Tabla Escuela
@@ -119,7 +119,7 @@
   ```
 
 - Eliminar (DELETE)
-    - LINK: 
+    - LINK: http://localhost:3000/escuelas/4
     - raw/JSON: 
 
 #### Tabla Departamento
@@ -142,129 +142,226 @@
   ```
 
 - Eliminar (DELETE)
-    - LINK: 
+    - LINK: http://localhost:3000/departamentos/4
     - raw/JSON: 
 
 #### Tabla Municipio
 - Agregar (POST)
-    - LINK: 
+    - LINK: http://localhost:3000/municipios
     - raw/JSON: 
+     ```json
+    {
+        "Id_municipio": 1, 
+        "Nombre": "Guatemala", 
+        "Codigo": 1, 
+        "Id_departamento": 1
+    }
+    ```
 
 - Visualizar (GET)
-    - LINK: 
+    - LINK: http://localhost:3000/municipios
     - raw/JSON: 
 
 - Actualizar (PUT)
-    - LINK: 
+    - LINK: http://localhost:3000/municipios/3
     - raw/JSON: 
+     ```json
+    {"Nombre": "San Jose", "Codigo": 1, "Id_departamento": 2}
+    ```
 
 - Eliminar (DELETE)
-    - LINK: 
+    - LINK: http://localhost:3000/municipios/5
     - raw/JSON: 
 
 #### Tabla Ubicacion
 - Agregar (POST)
-    - LINK: 
+    - LINK: http://localhost:3000/ubicaciones
     - raw/JSON: 
+     ```json
+    {"Id_Centro": 1, "Id_escuela": 1}
+    ```
 
 - Visualizar (GET)
-    - LINK: 
+    - LINK: http://localhost:3000/ubicaciones
     - raw/JSON: 
 
 - Actualizar (PUT)
-    - LINK: 
+    - LINK: http://localhost:3000/ubicaciones/1/2
     - raw/JSON: 
+    ```json
+    {"new_Id_Centro": 2, "new_Id_escuela": 2}
+    ```
 
 - Eliminar (DELETE)
-    - LINK: 
+    - LINK: http://localhost:3000/ubicaciones/4/4
     - raw/JSON: 
 
 #### Tabla Correlativo
 - Agregar (POST)
-    - LINK: 
+    - LINK: http://localhost:3000/correlativos
     - raw/JSON: 
+    ```json
+    {"Id_correlativo": 1, "Fecha": "2024-01-15", "No_examen": 1001}
+    ```
 
 - Visualizar (GET)
-    - LINK: 
+    - LINK: http://localhost:3000/correlativos
     - raw/JSON: 
 
 - Actualizar (PUT)
-    - LINK: 
+    - LINK: http://localhost:3000/correlativos/1
     - raw/JSON: 
+    ```json
+    {"Fecha": "2025-03-17", "No_examen": 1003}
+    ```
 
 - Eliminar (DELETE)
-    - LINK: 
+    - LINK: http://localhost:3000/correlativos/4
     - raw/JSON: 
 
 
 #### Tabla Registro
 - Agregar (POST)
-    - LINK: 
+    - LINK: http://localhost:3000/registros
     - raw/JSON: 
+    ```json
+    {
+    "Id_registro": 1,
+    "Fecha": "2024-01-15",
+    "Tipo_tramite": "Primera vez",
+    "Tipo_licencia": "A",
+    "Nombre_completo": "Juan Pérez García",
+    "Genero": "M",
+    "Id_Centro": 1,
+    "Id_escuela": 1,
+    "Id_municipio": 1
+  }
+    ```
 
 - Visualizar (GET)
-    - LINK: 
+    - LINK: http://localhost:3000/registros
     - raw/JSON: 
 
 - Actualizar (PUT)
-    - LINK: 
+    - LINK: http://localhost:3000/registros/1
     - raw/JSON: 
+    ```json
+    {
+    "Fecha": "2025-03-15",
+    "Tipo_tramite": "Renovación",
+    "Tipo_licencia": "A",
+    "Nombre_completo": "Juan Pérez García",
+    "Genero": "M",
+    "Id_Centro": 1,
+    "Id_escuela": 1,
+    "Id_municipio": 1
+  }
+    ```
 
 - Eliminar (DELETE)
-    - LINK: 
+    - LINK: http://localhost:3000/registros/4
     - raw/JSON: 
 
 
 #### Tabla Examen
 - Agregar (POST)
-    - LINK: 
+    - LINK: http://localhost:3000/examenes
     - raw/JSON: 
+    ```json
+     {"Id_examen": 1, "Id_correlativo": 1, "Id_registro": 1}
+    ```
 
 - Visualizar (GET)
-    - LINK: 
+    - LINK: http://localhost:3000/examenes
     - raw/JSON: 
 
 - Actualizar (PUT)
     - LINK: 
     - raw/JSON: 
+    ```json
+    {
+        "Id_correlativo": 2,
+        "Id_registro": 3
+    }
+    ```
 
 - Eliminar (DELETE)
-    - LINK: 
+    - LINK: http://localhost:3000/examenes/4
     - raw/JSON: 
 
 #### Tabla Respuesta_Usuario
 - Agregar (POST)
-    - LINK: 
+    - LINK: http://localhost:3000/respuestas-usuario
     - raw/JSON: 
+    ```json
+    {
+        "Id_respuesta_usuario": 1, 
+        "Respuesta": 2, 
+        "id_pregunta": 1, 
+        "Id_examen": 1
+    }
+    ```
 
 - Visualizar (GET)
-    - LINK: 
+    - LINK: http://localhost:3000/respuestas-usuario
     - raw/JSON: 
 
 - Actualizar (PUT)
-    - LINK: 
+    - LINK: http://localhost:3000/respuestas-usuario/1
     - raw/JSON: 
+    ```json
+    {"Respuesta": 2, "id_pregunta": 1, "Id_examen": 3}
+    ```
 
 - Eliminar (DELETE)
-    - LINK: 
+    - LINK: http://localhost:3000/respuestas-usuario/5
     - raw/JSON: 
 
 #### Tabla Respuesta_Practico_Usuario- Visualizar
 - Agregar (POST)
-    - LINK: 
+    - LINK: http://localhost:3000/respuestas-practico-usuario
     - raw/JSON: 
+    ```json
+    {
+        "Id_respuesta_practico": 1, 
+        "Nota": 20, 
+        "Id_pregunta_practico": 1, 
+        "Id_examen": 1
+    }
+    ```
 
 - Visualizar (GET)
-    - LINK: 
+    - LINK: http://localhost:3000/respuestas-practico-usuario
     - raw/JSON: 
 
 - Actualizar (PUT)
-    - LINK: 
+    - LINK: http://localhost:3000/respuestas-practico-usuario/1
     - raw/JSON: 
+    ```json
+    {
+        "Nota": 20, 
+        "Id_pregunta_practico": 1, 
+        "Id_examen": 2
+    }
+    ```
 
 - Eliminar (DELETE)
-    - LINK: 
+    - LINK: http://localhost:3000/respuestas-practico-usuario/5
     - raw/JSON: 
+
+#### Orden del DELETE:
+1. http://localhost:3000/centros/4
+2. http://localhost:3000/escuelas/4
+3. http://localhost:3000/ubicaciones/4/4
+4. http://localhost:3000/departamentos/4
+5. http://localhost:3000/municipios/5
+6. http://localhost:3000/preguntas-teorico/4
+7. http://localhost:3000/preguntas-practico/5
+8. http://localhost:3000/correlativos/4
+9. http://localhost:3000/registros/4
+10. http://localhost:3000/examenes/4
+11. http://localhost:3000/respuestas-usuario/5
+12. http://localhost:3000/respuestas-practico-usuario/5
 
 ## CAPTURA DE EVIDENCIAS
 ### CRUD
