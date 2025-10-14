@@ -1,6 +1,16 @@
 # Proyecto Fase 2: backend y exposición de servicios para la base de datos "Centro de Evaluación de Manejo"
 
 ## DESCRIPCIÓN
+Este proyecto implementa el backend del sistema de Centros de Evaluación de Manejo, desarrollado en Node.js con Express y conectado a una base de datos Oracle XE dockerizada.
+
+El sistema permite administrar los registros de cada una de las tablas mediante un API REST, que incluye:
+- Endpints CRUD completos para cada tabla
+- Tres consultas SQL para generar reportes y estadisticas:
+    1. Estadisticas de evaluación por centro y escuela.
+    2. Ranking de evaluados por resultado final.
+    3. Pregutna con menor porcentaje de aciertos.
+
+La base de datos se inicializa automáticamente con el script 02.tablas.sql al crear el contenedor.
 
 ## PASOS DE DESPLIEGUE
 1. Clonar el repositorio
@@ -13,10 +23,23 @@
      ``` 
      docker-compose up -d
       ```
-    - para verificar se puede usar: docker ps
+    - para verificar se puede usar: 
      ``` 
      docker ps
       ```
+3. Instalar ependencias del backend
+    ``` 
+     npm install
+    ```
+4. Ejecutar el servidor 
+    ``` 
+     node server.js
+    ```
+5. el backend está disponible en:
+    ``` 
+     http://localhost:3000
+    ```
+
 
 ## GUIA DBeaver
 1. Abriar DBeaver y seleccionar una nueva vonexión → Oracle

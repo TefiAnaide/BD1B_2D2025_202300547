@@ -1,0 +1,119 @@
+[
+    {
+        "Id_Centro": 1, "Nombre": "Centro de Evaluación Norte"
+    },
+
+    {
+        "Nombre": "Centro de Evaluación Editado"
+    },
+
+    {
+        "id_pregunta": 1,
+        "pregunta_texto": "¿Qué significa una señal circular roja?",
+        "Respuesta": 2,
+        "Res1": "Advertencia",
+        "Res2": "Prohibición",
+        "Res3": "Información",
+        "Res4": "Recomendación"
+    },
+
+    {
+        "pregunta_texto": "¿Qué significa la señal circular roja?",
+        "Respuesta": 2,
+        "Res1": "Advertencia",
+        "Res2": "Prohibición",
+        "Res3": "Detenerse",
+        "Res4": "Girar"
+    },
+
+    {"Id_pregunta_practico": 1, "Pregunta_texto": "Estacionamiento en paralelo", "Punteo": 25},
+
+    {"Pregunta_texto": "Estacionamiento en paralelo edit", "Punteo": 25},
+
+    {
+        "Id_escuela": 1, 
+        "Nombre": "Escuela de Manejo Veloz", 
+        "Direccion": "Zona 1, Ciudad", 
+        "Acuerdo": "ACU-2023-001"
+    },
+
+    {
+        "Nombre": "Escuela editada", 
+        "Direccion": "Zona 6, Ciudad", 
+        "Acuerdo": "ACU-2025-001"
+    },
+
+    {"Id_departamento": 1, "Nombre": "Guatemala", "Codigo": 1},
+
+    {"Nombre": "Jutiapa", "Codigo": 1},
+
+    {
+        "Id_municipio": 1, 
+        "Nombre": "Guatemala", 
+        "Codigo": 1, 
+        "Id_departamento": 1
+    },
+
+    {"Nombre": "San Jose", "Codigo": 1, "Id_departamento": 2},
+
+    {"Id_Centro": 1, "Id_escuela": 1},
+
+    {"new_Id_Centro": 2, "new_Id_escuela": 2},
+
+    {"Id_correlativo": 1, "Fecha": "2024-01-15", "No_examen": 1001},
+
+    {"Fecha": "2025-03-17", "No_examen": 1003},
+
+    {
+        "Id_registro": 1,
+        "Fecha": "2024-01-15",
+        "Tipo_tramite": "Primera vez",
+        "Tipo_licencia": "A",
+        "Nombre_completo": "Juan Pérez García",
+        "Genero": "M",
+        "Id_Centro": 1,
+        "Id_escuela": 1,
+        "Id_municipio": 1
+    },
+
+    {
+        "Fecha": "2025-03-15",
+        "Tipo_tramite": "Renovación",
+        "Tipo_licencia": "A",
+        "Nombre_completo": "Juan Pérez García",
+        "Genero": "M",
+        "Id_Centro": 1,
+        "Id_escuela": 1,
+        "Id_municipio": 1
+    },
+
+    {"Id_examen": 1, "Id_correlativo": 1, "Id_registro": 1},
+
+    {
+        "Id_correlativo": 2,
+        "Id_registro": 3
+    },
+
+    {
+        "Id_respuesta_usuario": 1, 
+        "Respuesta": 2, 
+        "id_pregunta": 1, 
+        "Id_examen": 1
+    },
+
+    {"Respuesta": 2, "id_pregunta": 1, "Id_examen": 3},
+
+    {
+        "Id_respuesta_practico": 1, 
+        "Nota": 20, 
+        "Id_pregunta_practico": 1, 
+        "Id_examen": 1
+    },
+
+    {
+        "Nota": 20, 
+        "Id_pregunta_practico": 1, 
+        "Id_examen": 2
+    }
+
+]
