@@ -613,4 +613,117 @@ app.delete('/respuestas-practico-usuario/:id', async (req, res) => {
     }
 });
 
+//-----------------------------Primer consulta-----------------------------//
+app.get('/estadisticas', async (req, res) => {
+    try {
+        const sql = `
+            SELECT 
+                Centro,
+                Escuela,
+                COUNT(Id_examen) as Total_Examenes,
+                ROUND(AVG(Puntaje_Teorico), 2) as Promedio_Teorico,
+                ROUND(AVG(Puntaje_Practico), 2) as Promedio_Practico,
+                COUNT(CASE WHEN Resultado = 'APROBADO' THEN 1 END) as Total_Aprobados
+            FROM Notas
+            GROUP BY Centro, Escuela
+            ORDER BY Centro, Escuela
+        `;
+        const result = await db.open(sql, [], false);
+        res.json(result.rows);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Error al obtener las estadísticas');
+    }
+});
+
+//-----------------------------Segunda consulta-----------------------------//
+app.get('/ranking', async (req, res) => {
+    try {
+        const sql = `
+            SELECT 
+                Nombre_completo,
+                Tipo_licencia,
+                Genero,
+                Fecha_Examen,
+                'Teórico: ' || Puntaje_Teorico || ', Práctico: ' || Puntaje_Practico AS Punteos_Individuales,
+                Punteo_Total,
+                Resultado AS Resultado_Final,
+                Centro || ' - ' || Escuela AS Ubicacion
+            FROM Notas
+            ORDER BY 
+                CASE WHEN Resultado = 'APROBADO' THEN 1 ELSE 2 END,
+                Punteo_Total DESC,
+                Fecha_Examen DESC
+        `;
+        const result = await db.open(sql, [], false);
+        res.json(result.rows);
+    } catch (err) {
+        console.error('Error en /ranking:', err);
+        res.status(500).send('Error al obtener el ranking');
+    }
+});
+
+
+//-----------------------------Tercera consulta-----------------------------//
+app.get('/preguntas', async (req, res) => {
+    try {
+        const sql = `
+            SELECT
+                pt.id_pregunta,
+                pt.Res1 as "A",
+                pt.Res2 as "B", 
+                pt.Res3 as "C",
+                pt.Res4 as "D",
+                pt.Respuesta as Respuesta_Correcta,
+                
+                (SELECT COUNT(*)
+                FROM Respuesta_Usuario 
+                WHERE Respuesta = pt.Respuesta
+                AND id_pregunta = pt.id_pregunta) AS Estadistica_Aciertos,
+                
+                ROUND(
+                    (SELECT COUNT(*)
+                    FROM Respuesta_Usuario 
+                    WHERE Respuesta = pt.Respuesta
+                    AND id_pregunta = pt.id_pregunta) * 100 /
+                    NULLIF((SELECT COUNT(*)
+                    FROM Respuesta_Usuario
+                    WHERE id_pregunta = pt.id_pregunta), 0),
+                2) AS Porcentaje_Aciertos,
+                
+                CASE
+                    WHEN (SELECT COUNT(*) FROM Respuesta_Usuario WHERE id_pregunta = pt.id_pregunta) = 0 THEN 'Sin datos'
+                
+                    WHEN (
+                    (SELECT COUNT(*)
+                    FROM Respuesta_Usuario 
+                    WHERE Respuesta = pt.Respuesta
+                    AND id_pregunta = pt.id_pregunta) * 100 /
+                    NULLIF((SELECT COUNT(*)
+                    FROM Respuesta_Usuario
+                    WHERE id_pregunta = pt.id_pregunta), 0)) < 30 THEN 'REVICIÓN URGENTE'
+                    
+                    WHEN (
+                    (SELECT COUNT(*)
+                    FROM Respuesta_Usuario 
+                    WHERE Respuesta = pt.Respuesta
+                    AND id_pregunta = pt.id_pregunta) * 100 /
+                    NULLIF((SELECT COUNT(*)
+                    FROM Respuesta_Usuario
+                    WHERE id_pregunta = pt.id_pregunta), 0)) < 50 THEN 'REVICIÓN NECESARIA'
+                    
+                    ELSE 'ACEPTABLE'
+                END as Estado_Recomendacion
+                
+            FROM Pregunta_Teorico pt
+            ORDER BY Porcentaje_Aciertos ASC
+        `;
+        const result = await db.open(sql, [], false);
+        res.json(result.rows);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Error al obtener las preguntas');
+    }
+});
+
 app.listen(3000, () => console.log('Servidor escuchando en el puerto 3000'));

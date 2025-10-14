@@ -120,3 +120,53 @@ CREATE TABLE Respuesta_Practico_Usuario
 );
 
 ALTER TABLE Pregunta_Teorico MODIFY pregunta_texto VARCHAR2(150);
+
+--crear la vista para estudiantes aprobados y reprobados, usada en las consultas 1 y 2
+CREATE OR REPLACE VIEW Notas AS
+SELECT 
+    c.Id_correlativo,
+    e.Id_examen,
+    re.Nombre_completo,
+    re.Genero,
+    re.Tipo_licencia,
+    cen.Nombre AS Centro,  
+    esc.Nombre AS Escuela, 
+    mu.Nombre AS MUNICIPIO,
+    de.Nombre AS DEPARTAMENTO,
+    c.Fecha AS FECHA_EXAMEN,
+    (SELECT COUNT(*) * 4
+     FROM Respuesta_Usuario ru
+     INNER JOIN Pregunta_Teorico pt ON ru.id_pregunta = pt.id_pregunta
+     WHERE ru.Id_examen = e.Id_examen 
+       AND ru.Respuesta = pt.Respuesta) AS Puntaje_Teorico,
+    (SELECT AVG(Nota) * 10
+     FROM Respuesta_Practico_Usuario 
+     WHERE Id_examen = e.Id_examen) AS Puntaje_Practico,
+    (
+      (SELECT COUNT(*) * 4
+        FROM Respuesta_Usuario ru
+        INNER JOIN Pregunta_Teorico pt ON ru.id_pregunta = pt.id_pregunta
+        WHERE ru.Id_examen = e.Id_examen 
+        AND ru.Respuesta = pt.Respuesta) 
+      +
+      (SELECT AVG(Nota) * 10
+        FROM Respuesta_Practico_Usuario 
+        WHERE Id_examen = e.Id_examen)
+    ) AS Punteo_Total,
+    CASE
+        WHEN (SELECT COUNT(*) * 4 FROM Respuesta_Usuario ru
+              INNER JOIN Pregunta_Teorico pt ON ru.id_pregunta = pt.id_pregunta
+              WHERE ru.Id_examen = e.Id_examen AND ru.Respuesta = pt.Respuesta) >= 70 
+             AND (SELECT AVG(Nota) * 10 FROM Respuesta_Practico_Usuario 
+                  WHERE Id_examen = e.Id_examen) >= 70 
+        THEN 'APROBADO'
+        ELSE 'REPROBADO'
+    END AS RESULTADO
+FROM Correlativo c
+INNER JOIN Examen e ON c.Id_correlativo = e.Id_correlativo
+INNER JOIN Registro re ON e.Id_registro = re.Id_registro
+INNER JOIN Centro cen ON re.Id_Centro = cen.Id_Centro  
+INNER JOIN Escuela esc ON re.Id_escuela = esc.Id_escuela  
+INNER JOIN Municipio mu ON re.Id_municipio = mu.Id_municipio
+INNER JOIN Departamento de ON mu.Id_departamento = de.Id_departamento;
+/

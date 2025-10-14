@@ -1,5 +1,37 @@
 # Proyecto Fase 2: backend y exposición de servicios para la base de datos "Centro de Evaluación de Manejo"
 
+## DESCRIPCIÓN
+
+## PASOS DE DESPLIEGUE
+1. Clonar el repositorio
+    - git clone https://github.com/TefiAnaide/BD1B_2D2025_202300547.git
+    - cd bd
+
+2. Levantar la ase de datos Oracle con Docker
+    - es necesario tener instalado Docker y docker compose
+    - conmando para descargar la imagen y crear el contenedor, crea las tablas automáticamente desde el script 02.tablas.sql: 
+     ``` 
+     docker-compose up -d
+      ```
+    - para verificar se puede usar: docker ps
+     ``` 
+     docker ps
+      ```
+
+## GUIA DBeaver
+1. Abriar DBeaver y seleccionar una nueva vonexión → Oracle
+2. Configurar los parametros
+    - HOST: localhost 
+    - PUERTO: 1522
+    - USUARIO: system
+    - CONTRASEÑA: oracle
+    - SID: XE
+3. Probar la conexión (Test Connection) y guardar
+4. Abrir el esquema donde se cargó el script
+
+![](/img/c52.png)
+![](/img/c53.png)
+
 ## USO DE ENDPOINTS
 
 #### Tabla Centros
@@ -363,6 +395,15 @@
 11. http://localhost:3000/respuestas-usuario/5
 12. http://localhost:3000/respuestas-practico-usuario/5
 
+### CONSULTA 1: Estadísticas de evaluaciones por centro y escuela
+- (GET) LINK: http://localhost:3000/estadisticas
+
+### CONSULTA 2: Ranking de evaluadores por resultado final
+- (GET) LINK: http://localhost:3000/ranking
+
+### CONSULTA 3: La pregutna con menor aciertos
+- (GET) LINK: http://localhost:3000/preguntas
+
 ## CAPTURA DE EVIDENCIAS
 ### CRUD
 
@@ -521,3 +562,12 @@
 
 - Eliminar
 ![](/img/c48.png)
+
+### CONSULTA 1: Estadísticas de evaluaciones por centro y escuela
+![](/img/C49.png)
+
+### CONSULTA 2: Ranking de evaluadores por resultado final
+![](/img/c50.png)
+
+### CONSULTA 3: La pregutna con menor aciertos
+![](/img/c51.png)
