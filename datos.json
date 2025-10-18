@@ -1,0 +1,356 @@
+{
+    "DEPARTAMENTO": [
+        {
+            "Id_departamento": 1,
+            "Nombre": "Guatemala",
+            "Codigo": "01"
+        },
+        {
+            "Id_departamento": 2,
+            "Nombre": "Sacatepéquez",
+            "Codigo": "03"
+        },
+        {
+            "Id_departamento": 3,
+            "Nombre": "Escuintla",
+            "Codigo": "05"
+        }
+    ],
+    "MUNICIPIO": [
+        {
+            "Id_municipio": 1,
+            "Nombre": "Guatemala",
+            "Codigo": 1,
+            "Id_departamento": 1
+        },
+        {
+            "Id_municipio": 2,
+            "Nombre": "Mixco",
+            "Codigo": 2,
+            "Id_departamento": 1
+        },
+        {
+            "Id_municipio": 3,
+            "Nombre": "Villa Nueva",
+            "Codigo": 3,
+            "Id_departamento": 1
+        },
+        {
+            "Id_municipio": 4,
+            "Nombre": "Escuintla",
+            "Codigo": 1,
+            "Id_departamento": 3
+        },
+        {
+            "Id_municipio": 5,
+            "Nombre": "Antigua Guatemala",
+            "Codigo": 1,
+            "Id_departamento": 2
+        }
+    ],
+    "CENTRO": [
+        {
+            "Id_Centro": 1,
+            "Nombre": "Centro de Evaluación Zona 12"
+        },
+        {
+            "Id_Centro": 2,
+            "Nombre": "Centro de Evaluación Antigua Guatemala"
+        },
+        {
+            "Id_Centro": 3,
+            "Nombre": "Centro de Evaluación Escuintla"
+        }
+    ],
+    "ESCUELA": [
+        {
+            "Id_escuela": 1,
+            "Nombre": "Escuela de Manejo AutoMaster",
+            "Direccion": "Avenida Reforma 15-45, Zona 10",
+            "Acuerdo": "ESC-AM-001"
+        },
+        {
+            "Id_escuela": 2,
+            "Nombre": "Academia Vial GuateDrive",
+            "Direccion": "Boulevard Los Próceres 18-20, Zona 10",
+            "Acuerdo": "ESC-GD-002"
+        },
+        {
+            "Id_escuela": 3,
+            "Nombre": "Instituto de Conducción Segura",
+            "Direccion": "Calzada Roosevelt 25-30, Zona 11",
+            "Acuerdo": "ESC-ICS-003"
+        }
+    ],
+    "UBICACION": [
+        {
+            "Id_Centro": 1,
+            "Id_escuela": 1
+        },
+        {
+            "Id_Centro": 1,
+            "Id_escuela": 2
+        },
+        {
+            "Id_Centro": 2,
+            "Id_escuela": 1
+        },
+        {
+            "Id_Centro": 3,
+            "Id_escuela": 2
+        },
+        {
+            "Id_Centro": 3,
+            "Id_escuela": 3
+        }
+    ],
+    "REGISTRO": [
+        {
+            "Id_registro": 1,
+            "Fecha": "2025-01-15",
+            "Tipo_tramite": "Licencia de Conducir",
+            "Tipo_licencia": "A",
+            "Nombre_completo": "Juan Carlos López García",
+            "Genero": "M",
+            "Id_Centro": 1,
+            "Id_escuela": 1,
+            "Id_municipio": 1            
+        },
+        {
+            "Id_registro": 2,
+            "Fecha": "2025-01-15",
+            "Tipo_tramite": "Licencia de Conducir",
+            "Tipo_licencia": "B",
+            "Nombre_completo": "María Elena Rodríguez Morales",
+            "Genero": "F",
+            "Id_Centro": 2,
+            "Id_escuela": 1,           
+            "Id_municipio": 2
+        },
+        {
+            "Id_registro": 3,
+            "Fecha": "2025-01-16",
+            "Tipo_tramite": "Licencia de Conducir",
+            "Tipo_licencia": "A",
+            "Nombre_completo": "Carlos Alberto Méndez Castillo",
+            "Genero": "M",
+            "Id_Centro": 1,
+            "Id_escuela": 2,
+            "Id_municipio": 3          
+        },
+        {
+            "Id_registro": 4,
+            "Fecha": "2025-01-17",
+            "Tipo_tramite": "Licencia de Conducir",
+            "Tipo_licencia": "A",
+            "Nombre_completo": "Ana Sofía Guerrero Díaz",
+            "Genero": "F",
+            "Id_Centro": 3,
+            "Id_escuela": 3,           
+            "Id_municipio": 4
+        },
+        {
+            "Id_registro": 5,
+            "Fecha": "2025-01-18",
+            "Tipo_tramite": "Licencia de Conducir",
+            "Tipo_licencia": "B",
+            "Nombre_completo": "Pedro José Hernández Ruiz",
+            "Genero": "M",
+            "Id_Centro": 2,
+            "Id_escuela": 2,
+            "Id_municipio": 5
+            
+        }
+    ],
+    "CORRELATIVO": [
+        {
+            "Id_correlativo": 1,
+            "Fecha": "2025-01-15",
+            "No_examen": 1
+        },
+        {
+            "Id_correlativo": 2,
+            "Fecha": "2025-01-15",
+            "No_examen": 2
+        },
+        {
+            "Id_correlativo": 3,
+            "Fecha": "2025-01-16",
+            "No_examen": 3
+        },
+        {
+            "Id_correlativo": 4,
+            "Fecha": "2025-01-17",
+            "No_examen": 4
+        },
+        {
+            "Id_correlativo": 5,
+            "Fecha": "2025-01-18",
+            "No_examen": 5
+        }
+    ],
+    "EXAMEN": [
+        {
+            "Id_examen": 1,
+            "Id_correlativo": 1,
+            "Id_registro": 1
+        },
+        {   
+            "Id_examen": 2,
+            "Id_correlativo": 2,
+            "Id_registro": 2
+        },
+        {
+            "Id_examen": 3,
+            "Id_correlativo": 3,
+            "Id_registro": 3
+        },
+        {
+            "Id_examen": 4,
+            "Id_correlativo": 4,
+            "Id_registro": 4
+        },
+        {
+            "Id_examen": 5,
+            "Id_correlativo": 5,
+            "Id_registro": 5
+        }
+    ],
+    "PREGUNTAS": [
+        {
+            "id_pregunta": 1,
+            "pregunta_texto": "¿Cuál es la distancia mínima que debe mantener entre vehículos en carretera?",
+            "Respuesta": 2,
+            "Res1": "2 metros",
+            "Res2": "3 segundos de distancia",
+            "Res3": "5 metros",
+            "Res4": "1 segundo de distancia"
+            
+        },
+        {
+            "id_pregunta": 2,
+            "pregunta_texto": "¿Qué significa una señal de alto?",
+            "Respuesta": 2,
+            "Res1": "Reducir velocidad",
+            "Res2": "Detenerse completamente",
+            "Res3": "Ceder el paso",
+            "Res4": "Continuar con precaución"
+            
+        },
+        {
+            "id_pregunta": 3,
+            "pregunta_texto": "¿Cuál es el límite de velocidad en zona escolar?",
+            "Respuesta": 1,
+            "Res1": "20 km/h",
+            "Res2": "30 km/h",
+            "Res3": "40 km/h",
+            "Res4": "50 km/h"
+        },
+        {
+            "id_pregunta": 4,
+            "pregunta_texto": "¿Qué debe hacer al ver una ambulancia con sirena activada?",
+            "Respuesta": 3,
+            "Res1": "Mantener velocidad",
+            "Res2": "Acelerar para salir del camino",
+            "Res3": "Orillarse y detenerse",
+            "Res4": "Ignorar la sirena"     
+        }
+    ],
+    "PREGUNTAS_PRACTICO": [
+        {
+            "Id_pregunta_practico": 1,
+            "Pregunta_texto": "Realizar estacionamiento en paralelo en un espacio de 6 metros",
+            "Punteo": 20
+        },
+        {
+            "Id_pregunta_practico": 2,
+            "Pregunta_texto": "Conducir en reversa por 50 metros manteniendo trayectoria recta",
+            "Punteo": 15
+        },
+        {
+            "Id_pregunta_practico": 3,
+            "Pregunta_texto": "Maniobra de tres puntos en espacio reducido",
+            "Punteo": 25
+        },
+        {
+            "Id_pregunta_practico": 4,
+            "Pregunta_texto": "Conducción en zona urbana respetando señales de tránsito",
+            "Punteo": 30
+        }
+    ],
+    "RESPUESTA_USUARIO": [
+        {
+            "Id_respuesta_usuario": 1,
+            "Respuesta": 2,
+            "id_pregunta": 1,
+            "Id_examen": 1
+        },
+        {
+            "Id_respuesta_usuario": 2,
+            "Respuesta": 2,
+            "id_pregunta": 2,
+            "Id_examen": 1            
+        },
+        {
+            "Id_respuesta_usuario": 3,
+            "Respuesta": 1,
+            "id_pregunta": 3,
+            "Id_examen": 2           
+        },
+        {
+            "Id_respuesta_usuario": 4,
+            "Respuesta": 3,
+            "id_pregunta": 4,
+            "Id_examen": 2            
+        },
+        {
+            "Id_respuesta_usuario": 5,
+            "Respuesta": 2,
+            "id_pregunta": 1,
+            "Id_examen": 3   
+        },
+        {
+            "Id_respuesta_usuario": 6,
+            "Respuesta": 1,
+            "id_pregunta": 2,
+            "Id_examen": 3
+        }
+    ],
+    "RESPUESTA_PRACTICO_USUARIO": [
+        {
+            "Id_respuesta_practico": 1,
+            "Nota": 18,
+            "Id_pregunta_practico": 1,
+            "Id_examen": 1
+            
+        },
+        {
+            "Id_respuesta_practico": 2,
+            "Nota": 13,
+            "Id_pregunta_practico": 2,
+            "Id_examen": 1
+            
+        },
+        {
+            "Id_respuesta_practico": 3,
+            "Nota": 22,
+            "Id_pregunta_practico": 3,
+            "Id_examen": 2
+            
+        },
+        {
+            "Id_respuesta_practico": 4,
+            "Nota": 28,
+            "Id_pregunta_practico": 4,
+            "Id_examen": 2
+            
+        },
+        {
+            "Id_respuesta_practico": 5,
+            "Nota": 15,
+            "Id_pregunta_practico": 1,
+            "Id_examen": 3
+            
+        }
+    ]
+}
